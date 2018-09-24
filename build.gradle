@@ -1,0 +1,49 @@
+plugins {
+    id 'groovy'
+    id 'java'
+    id 'kotlin-platform-common' version '1.2.51'
+    id 'kotlin-platform-js' version '1.2.51'
+    id 'kotlin-platform-jvm' version '1.2.51'
+    id 'kotlin2js' version '1.2.51'
+    id 'org.jetbrains.intellij' version '0.3.11'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.51'
+}
+
+group 'com.apache.MyApp'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-common"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-js"
+    compile 'org.codehaus.groovy:groovy-all:2.3.11'
+    testCompile "junit:junit:4.12"
+    testCompile "org.jetbrains.kotlin:kotlin-test"
+    testCompile "org.jetbrains.kotlin:kotlin-test-annotations-common"
+    testCompile "org.jetbrains.kotlin:kotlin-test-common"
+    testCompile "org.jetbrains.kotlin:kotlin-test-js"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit"
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+intellij {
+    version '2018.2.4'
+}
+patchPluginXml {
+    changeNotes """
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>"""
+}
+sourceCompatibility = "1.8"
